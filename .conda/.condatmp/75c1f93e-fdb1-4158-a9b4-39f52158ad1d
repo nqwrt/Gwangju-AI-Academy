@@ -1,0 +1,13 @@
+prefix=d:/광주-인공사/실습예제/.conda/Library
+exec_prefix=d:/광주-인공사/실습예제/.conda/Library
+libdir=d:/광주-인공사/실습예제/.conda/Library/lib
+sharedlibdir=d:/광주-인공사/실습예제/.conda/Library/lib
+includedir=d:/광주-인공사/실습예제/.conda/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.3.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

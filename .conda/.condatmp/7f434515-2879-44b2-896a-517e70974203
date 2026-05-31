@@ -1,0 +1,11 @@
+prefix=d:/광주-인공사/실습예제/.conda/Library 
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL-libssl
+Description: Secure Sockets Layer and cryptography libraries
+Libs: -L"${libdir}" -llibssl
+Requires: libcrypto
+Cflags: -I"${includedir}"
+Version: 3.5.6 
