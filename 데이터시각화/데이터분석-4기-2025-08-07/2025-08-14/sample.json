@@ -1,0 +1,18 @@
+
+[
+    {
+      "id": "A001",
+      "city": "Tokyo",
+      "country": "Japan",
+    },
+    {
+      "id": "B012",
+      "city": "Jerusalem",
+      "country": "Isreal",
+    },
+    {
+      "id": "C123",
+      "city": "Busan",
+      "country": "South Korea",
+    }
+]

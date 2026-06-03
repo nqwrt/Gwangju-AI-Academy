@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<world name = "주소록과 네이버 API 서비스키">    
+    <people name='김민국' >
+        <age>15</age>
+        <tall>183cm</tall>
+        <add>서울시 서대문구</add>
+    </people>    
+    <people name='박한솔' >
+        <age>30</age>
+        <tall>175cm</tall>
+        <add>서울시 용산구</add>
+    </people>    
+    <naver_api>
+        <client_id>JXRlq56Db1L0PA</client_id>
+        <client_secret>hwiniqqkgvH</client_secret>
+    </naver_api>    
+</world>
