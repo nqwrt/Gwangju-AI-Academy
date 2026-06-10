@@ -8,7 +8,7 @@ conn = pymysql.connect(
     host='localhost', 
     user='scott', 
     password='tiger', 
-    db='scott', charset='utf8')
+    database='scott', charset='utf8')
 
 sql = "select * from emp"
 df_emp = pd.read_sql(sql, conn)
