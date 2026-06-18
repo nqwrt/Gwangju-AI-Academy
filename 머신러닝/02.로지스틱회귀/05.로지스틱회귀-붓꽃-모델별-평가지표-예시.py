@@ -104,7 +104,7 @@ st.pyplot(fig)
 # 9. 그래프 비교
 # -----------------------------
 st.subheader("📈 F1 Score 비교")
-
+=
 fig2, ax2 = plt.subplots()
 df_result["F1"].plot(kind="bar", ax=ax2)
 ax2.set_ylim(0, 1)
