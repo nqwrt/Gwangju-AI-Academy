@@ -161,10 +161,8 @@ builder = StateGraph(
     State
 )
 
-
 builder.add_node("multiply2",multiply2)
 builder.add_edge(START,"multiply2")
-
 
 # 반복 조건
 builder.add_conditional_edges(
