@@ -24,8 +24,6 @@ retriever = vector_db.as_retriever(
     search_kwargs={"k":3}
 )
 
-
-
 PROMPT = """
 당신은 PDF 문서를 분석하는 AI입니다.
 

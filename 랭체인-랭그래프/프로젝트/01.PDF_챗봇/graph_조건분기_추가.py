@@ -16,6 +16,18 @@ llm = init_custom_llm()
 # 이후에 체인(Chain)을 구성하거나 llm.invoke() 등을 사용하시면 됩니다.
 print(f"LLM 모델 로드 완료")
 
+from pathlib import Path
+import os
+
+BASE_DIR = Path(__file__).parent
+DB_PATH = BASE_DIR / "chroma_db"
+
+print("=" * 50)
+print("현재 작업폴더 :", os.getcwd())
+print("graph.py 위치 :", BASE_DIR.resolve())
+print("DB 위치 :", DB_PATH.resolve())
+print("=" * 50)
+
 
 embedding = OpenAIEmbeddings(
     model="text-embedding-3-small"

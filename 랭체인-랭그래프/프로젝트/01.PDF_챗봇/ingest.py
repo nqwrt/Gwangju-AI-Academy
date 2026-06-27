@@ -12,7 +12,6 @@ from langchain_chroma import Chroma
 import os
 
 print("현재 파이썬이 인식하는 위치:", os.getcwd())
-print("거기에 ai.pdf가 실제로 있나요?:", os.path.exists("ai.pdf"))
 
 loader = PyPDFLoader(r"D:\광주-인공사\Gwangju-AI-Academy\랭체인-랭그래프\프로젝트\01.PDF_챗봇\샘플_삼성냉장고.pdf")
 

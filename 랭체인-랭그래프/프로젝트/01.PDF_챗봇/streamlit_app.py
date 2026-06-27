@@ -11,17 +11,13 @@ if "messages" not in st.session_state:
 
 
 for message in st.session_state.messages:
-
     with st.chat_message(message["role"]):
-
         st.markdown(message["content"])
 
 
 question = st.chat_input("질문을 입력하세요.")
 
-
 if question:
-
     st.session_state.messages.append(
         {
             "role":"user",
