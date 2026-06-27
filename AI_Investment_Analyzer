@@ -1,0 +1,64 @@
+digraph AI_Investment_Analyzer {
+	rankdir=TB
+	fontname="Malgun Gothic"
+	fontsize=24 label="41. AI 투자 분석기 (LangGraph Mini Project)" labelloc=t
+	node [color=lightblue fontsize=12 shape=box style="rounded,filled"]
+	Q [label="사용자 질문
+
+삼성전자 투자해도 될까?"]
+	C [label="회사명 추출
+extract_company()"]
+	F [label="재무정보 조회
+get_finance()"]
+	N [label="뉴스 검색
+get_news()"]
+	A [label="AI 종합 분석
+analyze()"]
+	R [label="최종 결과"]
+	Q -> C
+	C -> F
+	F -> N
+	N -> A
+	A -> R
+	subgraph cluster_project {
+		label="프로젝트 구조"
+		style=rounded
+		app [label="app.py
+
+Streamlit UI" fillcolor=lightyellow]
+		"graph" [label="graph.py
+
+LangGraph Workflow" fillcolor=lightgreen]
+		tools [label="tools.py
+
+Yahoo Finance
+News Search" fillcolor=lightpink]
+		loader [label="llm_loader.py
+
+LLM 초기화" fillcolor=lightcyan]
+	}
+	subgraph cluster_state {
+		label=GraphState
+		state [label="question
+company
+finance
+news
+answer" fillcolor=white shape=record]
+	}
+	subgraph cluster_stack {
+		label="기술 스택"
+		langgraph [label=LangGraph]
+		langchain [label=LangChain]
+		openai [label=OpenAI]
+		finance [label="Yahoo Finance"]
+		news [label="News Search"]
+		streamlit [label=Streamlit]
+	}
+	subgraph cluster_feature {
+		label="주요 기능"
+		f1 [label="회사명 추출"]
+		f2 [label="재무정보 조회"]
+		f3 [label="뉴스 검색"]
+		f4 [label="AI 종합 분석"]
+	}
+}
