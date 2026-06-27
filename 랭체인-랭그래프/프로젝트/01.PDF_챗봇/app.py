@@ -10,9 +10,7 @@ while True:
     answer = ask(question)
 
     print()
-
     print(answer)
-
     print("-"*50)
 
 
