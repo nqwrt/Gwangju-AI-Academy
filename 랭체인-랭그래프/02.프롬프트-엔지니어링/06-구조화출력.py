@@ -140,6 +140,36 @@ prompt = """
 # 당신은 데이터 포맷터입니다.
 # JSON만 출력하세요.
 
+#6. 🧩 ReAct + Reflection + Agent 통합
+
+# ✔ ReAct
+# → 생각하고 행동하는 구조
+# ✔ Reflection
+# → 결과를 스스로 검토
+# ✔ Critique
+# → 자기 평가 + 수정
+# ✔ Agent
+# → 스스로 판단하는 AI
+
+prompt = """
+당신은 AI 분석 에이전트입니다.
+
+[작업]
+사용자의 데이터를 분석하고 결론을 도출하세요.
+
+[절차]
+1. 문제 이해 (Reason)
+2. 해결 방법 선택 (Act)
+3. 결과 생성 (Output)
+4. 결과 검토 (Reflection)
+5. 개선 여부 판단
+
+[출력]
+- 분석 과정
+- 최종 결과
+- 검토 결과
+"""
+
 res = client.responses.create(
     model="gpt-4o-mini",
     input=prompt
