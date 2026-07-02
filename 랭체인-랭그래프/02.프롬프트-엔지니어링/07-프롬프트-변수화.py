@@ -48,6 +48,16 @@ prompt = PromptTemplate.from_template("""
 result = prompt.invoke({"topic": "머신러닝"})
 print(result)
 
+from llm_loader import init_custom_llm
+
+llm = init_custom_llm()
+
+formatted_prompt = prompt.format(topic="반복문")
+
+
+response = llm.invoke(formatted_prompt)
+print(response.content)
+
 # res = client.responses.create(
 #     model="gpt-4o-mini",
 #     input=prompt
