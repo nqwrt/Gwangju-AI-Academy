@@ -44,8 +44,10 @@ llm = init_custom_llm()
 
 try:
     result = llm.invoke("AI Agent란?")
+    
     print(result)
     print(result.content)
+
 except Exception as e:
     import traceback
     traceback.print_exc()
@@ -56,3 +58,22 @@ except Exception as e:
 
 # print(result.content)
 
+
+from pprint import pprint
+
+
+
+print(type(result))
+print()
+
+print("=== content ===")
+print(result.content)
+
+print("\n=== response_metadata ===")
+pprint(result.response_metadata)
+
+print("\n=== usage_metadata ===")
+pprint(result.usage_metadata)
+
+print("\n=== model_dump ===")
+pprint(result.model_dump())
