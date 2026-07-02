@@ -62,7 +62,6 @@ except Exception as e:
 from pprint import pprint
 
 
-
 print(type(result))
 print()
 
