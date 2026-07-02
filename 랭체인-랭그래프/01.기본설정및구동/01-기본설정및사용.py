@@ -17,6 +17,10 @@ response = client.responses.create(
 
 print(response.output_text)
 
+import os
+import sys
+
+
 
 #예전스타일
 # response = client.chat.completions.create(
