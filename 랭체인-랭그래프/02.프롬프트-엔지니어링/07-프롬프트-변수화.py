@@ -3,8 +3,13 @@ from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
 from openai import OpenAI
+import sys
+from pathlib import Path
 
-load_dotenv()
+# 현재 파일 기준으로 3단계 위 폴더를 import 경로에 추가
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from llm_loader import init_custom_llm
+
 
 # 왜 이걸 알아야 하냐.
 # 언어 모델은 주어진 예제들을 참고하여 더 정확하고 일관된 응답을 생성
@@ -46,21 +51,18 @@ prompt = PromptTemplate.from_template("""
 """)
 
 result = prompt.invoke({"topic": "머신러닝"})
+# formatted_prompt = prompt.format(topic="반복문")
 print(result)
 
-from llm_loader import init_custom_llm
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "당신은 Python 강사입니다."),
+    ("human", "{topic}을 설명하세요.")
+])
+
+result = prompt.invoke({"topic": "머신러닝"})
 
 llm = init_custom_llm()
-
-formatted_prompt = prompt.format(topic="반복문")
-
-
-response = llm.invoke(formatted_prompt)
+response = llm.invoke(result)
 print(response.content)
 
-# res = client.responses.create(
-#     model="gpt-4o-mini",
-#     input=prompt
-# )
-
-# print(res.output_text)
