@@ -15,7 +15,6 @@ from llm_loader import init_custom_llm
 # 언어 모델은 주어진 예제들을 참고하여 더 정확하고 일관된 응답을 생성
 # 이래야만 돈 한마디로 토큰을 아낄수 있음
 
-client = OpenAI()
 
 # 2. 🧩 Prompt 변수화 (Template 구조)
 topic = "딥러닝"
@@ -55,14 +54,40 @@ result = prompt.invoke({"topic": "머신러닝"})
 print(result)
 
 
-prompt = ChatPromptTemplate.from_messages([
+messages = ChatPromptTemplate.from_messages([
     ("system", "당신은 Python 강사입니다."),
     ("human", "{topic}을 설명하세요.")
 ])
 
-result = prompt.invoke({"topic": "머신러닝"})
+print(messages)
+result = messages.invoke({"topic": "머신러닝"})
 
 llm = init_custom_llm()
 response = llm.invoke(result)
 print(response.content)
 
+##################################### 메세지 홀더 ###############################
+
+# PromptTemplate → 문자열 변수를 넣는다.
+# ChatPromptTemplate → 역할(System/Human/AI)을 가진 메시지를 만든다.
+# MessagesPlaceholder → 이전 대화 메시지 리스트를 해당 위치에 그대로 삽입한다.
+
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import MessagesPlaceholder
+from langchain_core.messages import HumanMessage, AIMessage
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "당신은 친절한 AI입니다."),
+    MessagesPlaceholder("history"),
+    ("human", "{question}")
+])
+
+messages = prompt.invoke({
+    "history":[
+        HumanMessage(content="안녕"),
+        AIMessage(content="안녕하세요.")
+    ],
+    "question":"내 이름 기억해?"
+})
+
+print(messages)

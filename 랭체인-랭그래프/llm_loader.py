@@ -7,41 +7,32 @@ from dotenv import load_dotenv
 import langchain
 import langchain_openai
 
-print(langchain.__version__)
-print(langchain_openai.__version__)
-
+# print(langchain.__version__)
+# print(langchain_openai.__version__)
 
 env_path = Path(__file__).resolve().parent / ".env"
 
 #print(env_path)
-print("llm_loader 위치:", Path(__file__).resolve())
-print(".env 위치:", Path(__file__).resolve().parent / ".env")
+# print("llm_loader 위치:", Path(__file__).resolve())
+# print(".env 위치:", Path(__file__).resolve().parent / ".env")
 
 load_dotenv(env_path)
 
-print("API KEY :", os.getenv("LANGSMITH_API_KEY"))
-print("TRACING :", os.getenv("LANGSMITH_TRACING"))
-print("PROJECT :", os.getenv("LANGCHAIN_PROJECT"))
-print("ENDPOINT:", os.getenv("LANGSMITH_ENDPOINT"))
-
-from langsmith import Client
-
-client = Client()
-
-from langsmith import Client
-
-from langsmith import Client
+# print("API KEY :", os.getenv("LANGSMITH_API_KEY"))
+# print("TRACING :", os.getenv("LANGSMITH_TRACING"))
+# print("PROJECT :", os.getenv("LANGCHAIN_PROJECT"))
+# print("ENDPOINT:", os.getenv("LANGSMITH_ENDPOINT"))
 
 from langsmith import Client
 import os
 
-client = Client(
-    api_key=os.environ["LANGSMITH_API_KEY"]
-)
+# client = Client(
+#     api_key=os.environ["LANGSMITH_API_KEY"]
+# )
 
-print(client)
-print(list(client.list_projects()))
-print(os.environ["LANGSMITH_API_KEY"][:12])
+# print(client)
+# print(list(client.list_projects()))
+# print(os.environ["LANGSMITH_API_KEY"][:12])
 
 # 모듈이 로드될 때 .env를 자동으로 읽도록 설정
 #load_dotenv()
