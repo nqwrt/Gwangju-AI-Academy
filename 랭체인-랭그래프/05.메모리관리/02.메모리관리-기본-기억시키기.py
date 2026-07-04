@@ -42,6 +42,7 @@ history = [] # 대화 기록 저장소 생성
 prompt = ChatPromptTemplate.from_messages([
     ("system","당신은 친절한 비서입니다."), #LLM 규칙 지정.
     # ("placeholder","{history}"), ## history 자리에 이전 대화를 넣어라 => 가장 중요한 부분
+    # "history라는 이름으로 전달되는 대화 내용을 여기에 넣어라."
     MessagesPlaceholder("history")
 
 ])

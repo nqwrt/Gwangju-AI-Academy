@@ -42,16 +42,16 @@ ChatPromptTemplate
 # human 여러 개 가능
 
 prompt = ChatPromptTemplate.from_messages(
-[
-(
-"system",
-"너는 파이썬 강사"
-),
-(
-"human",
-"{question}"
-)
-]
+    [
+        (
+        "system",
+        "너는 파이썬 강사"
+        ),
+        (
+        "human",
+        "{question}"
+        )
+    ]
 )
 
 prompt = ChatPromptTemplate.from_messages(

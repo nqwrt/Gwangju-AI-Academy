@@ -74,7 +74,7 @@ print(response.content)
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import MessagesPlaceholder
-from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.messages import *
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", "당신은 친절한 AI입니다."),

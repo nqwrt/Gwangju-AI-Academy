@@ -1,6 +1,7 @@
 # LangGraph 기반 메모리 권장
 
-# LangChain 1.0에서는 복잡한 상태 관리가 필요한 경우 LangGraph 기반 메모리(InMemorySaver, SqliteSaver 등)를 권장합니다. RunnableWithMessageHistory는 간단한 챗봇에서 계속 사용할 수 있으며 지원이 유지
+# LangChain 1.0에서는 복잡한 상태 관리가 필요한 경우 LangGraph 기반 메모리(InMemorySaver, SqliteSaver 등)를 권장합니다.
+#  RunnableWithMessageHistory는 간단한 챗봇에서 계속 사용할 수 있으며 지원이 유지
 
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
