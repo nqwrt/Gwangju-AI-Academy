@@ -63,8 +63,8 @@ sentences = [
 
 vectors = embedding.embed_documents(sentences)
 
-for sentence, vector in zip(sentences, vectors):
+for i in range(len(sentences)):
     print("=" * 50)
-    print(sentence)
-    print("벡터 길이 :", len(vector))
-    print("앞의 5개 값 :", vector[:5])
+    print(sentences[i])
+    print("벡터 길이 :", len(vectors[i]))
+    print("앞의 5개 값 :", vectors[i][:5])
