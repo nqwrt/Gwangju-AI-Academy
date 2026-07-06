@@ -89,10 +89,10 @@ def get_session_history(session_id: str):
 ####################################################
 
 chain_with_history = RunnableWithMessageHistory(
-    runnable=chain,
-    get_session_history=get_session_history,
-    input_messages_key="question",
-    history_messages_key="history",
+    runnable = chain,
+    get_session_history = get_session_history,
+    input_messages_key = "question",
+    history_messages_key = "history",
 )
 
 ####################################################

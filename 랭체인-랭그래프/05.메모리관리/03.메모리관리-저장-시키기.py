@@ -102,8 +102,9 @@ print(history.messages)
 
 #
 # 예제 8. LLM과 연결하기 (가장 중요한 예제)
+from langchain_core.chat_history import InMemoryChatMessageHistory
 
-history = ChatMessageHistory()
+history = InMemoryChatMessageHistory()
 
 # 첫 번째 질문
 question = "내 이름은 철수야."
