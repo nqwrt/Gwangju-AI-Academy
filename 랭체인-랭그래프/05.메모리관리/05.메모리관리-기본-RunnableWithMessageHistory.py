@@ -107,6 +107,7 @@ while True:
     )
 
     print("\nAI:", res.content)
+    print(store)
 
 #             [User Question]
 #                |

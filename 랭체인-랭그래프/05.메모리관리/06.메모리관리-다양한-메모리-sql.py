@@ -78,6 +78,20 @@ chain_with_sql_history = RunnableWithMessageHistory(
 )
 
 
+# 저장된 정보 가져오기
+# history = SQLChatMessageHistory(
+#     session_id="user_1",
+#     connection="mysql+pymysql://scott:tiger@localhost:3306/scott",
+#     table_name="message_store"
+# )
+
+# messages = history.messages
+
+# for msg in messages:
+#     print(type(msg).__name__, msg.content)
+
+
+
 while True:
 
     q = input("질문: ")
@@ -111,3 +125,5 @@ while True:
 #     ├─ 빠른 응답 필요 → Redis
 #     ├─ 데이터 영구성 중요 → PostgreSQL
 #     └─ 둘 다 필요 → Redis (캐시) + PostgreSQL (영구)
+
+
