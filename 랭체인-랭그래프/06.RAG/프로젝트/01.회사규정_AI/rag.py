@@ -10,16 +10,26 @@ from langchain_huggingface import HuggingFaceEmbeddings
 import sys
 from pathlib import Path
 # 현재 파일 기준으로 3단계 위 폴더를 import 경로에 추가
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent.parent))
 
 from llm_loader import init_custom_llm
 
 llm = init_custom_llm()
 
-embedding = HuggingFaceEmbeddings()
+embedding = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-m3",
+    model_kwargs={"device": "cpu"},
+    encode_kwargs={"normalize_embeddings": True}
+)
+
+# 현재 rag.py가 있는 폴더
+BASE_DIR = Path(__file__).resolve().parent
+
+# chroma_db 폴더
+DB_PATH = BASE_DIR / "chroma_db"
 
 db = Chroma(
-    persist_directory="./vector_db",
+    persist_directory=str(DB_PATH),
     embedding_function=embedding
 )
 

@@ -40,10 +40,17 @@ splitter = RecursiveCharacterTextSplitter(
 )
 docs = splitter.split_documents(documents)
 print(f"Chunk 개수 : {len(docs)}")
+
+# 현재 파이썬 파일이 있는 폴더
+BASE_DIR = Path(__file__).resolve().parent
+
+# Chroma DB 저장 폴더
+DB_PATH = BASE_DIR / "chroma_db"
+
 db = Chroma.from_documents(
     documents=docs,
     embedding=embedding,
-    persist_directory="./vector_db"
+    persist_directory=str(DB_PATH)
 )
 
 print("Vector DB 저장 완료")
