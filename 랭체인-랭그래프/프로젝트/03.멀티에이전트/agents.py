@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 from pydantic import BaseModel
 
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 from llm_loader import init_custom_llm
 
 llm = init_custom_llm()
@@ -32,9 +32,10 @@ def english_agent(state):
     질문:
     {state["question"]}
     """
-
+    
+    
     result = llm.invoke(prompt)
-
+    print("이걸타나")
     return {
         "answer": result.content
     }
