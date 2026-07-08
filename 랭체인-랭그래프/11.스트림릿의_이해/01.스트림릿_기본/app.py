@@ -15,73 +15,73 @@ st.write("Streamlit을 배워봅시다!")
 # # Markdown
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.markdown("### Markdown")
+st.markdown("### Markdown")
 
-# st.markdown("""
-# - Python
-# - Streamlit
-# - LangChain
-# - RAG
-# """)
+st.markdown("""
+- Python
+- Streamlit
+- LangChain
+- RAG
+""")
 
 # ####################################################
 # # 코드 출력
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.subheader("코드 출력")
+st.subheader("코드 출력")
 
-# code = """
-# for i in range(5):
-#     print(i)
-# """
+code = """
+for i in range(5):
+    print(i)
+"""
 
-# st.code(code, language="python")
+st.code(code, language="python")
 
 # ####################################################
 # # 캡션
 # ####################################################
 
-# st.caption("이 화면은 Streamlit 실습입니다.")
+st.caption("이 화면은 Streamlit 실습입니다.")
 
 # ####################################################
 # # 이미지
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.subheader("이미지 출력")
+st.subheader("이미지 출력")
 
-# st.image("cat.jpg", width=300)
+st.image("cat.png", width=300)
 
 # ####################################################
 # # DataFrame
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.subheader("DataFrame")
+st.subheader("DataFrame")
 
-# df = pd.DataFrame(
-#     {
-#         "이름": ["홍길동", "김철수", "이영희"],
-#         "나이": [20, 22, 25],
-#         "점수": [90, 85, 100]
-#     }
-# )
+df = pd.DataFrame(
+    {
+        "이름": ["홍길동", "김철수", "이영희"],
+        "나이": [20, 22, 25],
+        "점수": [90, 85, 100]
+    }
+)
 
-# st.dataframe(df)
+st.dataframe(df)
 
 # ####################################################
 # # Table
 # ####################################################
 
-# st.subheader("Table")
+st.subheader("Table")
 
-# st.table(df)
+st.table(df)
 
 # ####################################################
 # # Metric
@@ -89,90 +89,90 @@ st.write("Streamlit을 배워봅시다!")
 
 # st.markdown("---")
 
-# st.subheader("Metric")
+st.subheader("Metric")
 
-# col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
-# with col1:
-#     st.metric("매출", "100만원", "+10%")
+with col1:
+    st.metric("매출", "100만원", "+10%")
 
-# with col2:
-#     st.metric("회원수", "500명", "+30")
+with col2:
+    st.metric("회원수", "500명", "+30")
 
-# with col3:
-#     st.metric("방문자", "2000명", "-15")
+with col3:
+    st.metric("방문자", "2000명", "-15")
 
 # ####################################################
 # # Columns
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.subheader("Columns")
+st.subheader("Columns")
 
-# left, right = st.columns(2)
+left, right = st.columns(2)
 
-# with left:
-#     st.write("왼쪽 화면")
-#     st.success("성공")
+with left:
+    st.write("왼쪽 화면")
+    st.success("성공")
 
-# with right:
-#     st.write("오른쪽 화면")
-#     st.info("정보")
+with right:
+    st.write("오른쪽 화면")
+    st.info("정보")
 
 # ####################################################
 # # Container
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.subheader("Container")
+st.subheader("Container")
 
-# with st.container():
-#     st.write("첫 번째")
-#     st.write("두 번째")
-#     st.write("세 번째")
+with st.container():
+    st.write("첫 번째")
+    st.write("두 번째")
+    st.write("세 번째")
 
 # ####################################################
 # # Expander
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.subheader("Expander")
+st.subheader("Expander")
 
-# with st.expander("클릭하면 내용이 열립니다."):
-#     st.write("숨겨진 내용입니다.")
-#     st.write("여러 줄도 가능합니다.")
+with st.expander("클릭하면 내용이 열립니다."):
+    st.write("숨겨진 내용입니다.")
+    st.write("여러 줄도 가능합니다.")
 
 # ####################################################
 # # Sidebar
 # ####################################################
 
-# st.sidebar.title("사이드바")
+st.sidebar.title("사이드바")
 
-# st.sidebar.write("여기는 메뉴 영역입니다.")
+st.sidebar.write("여기는 메뉴 영역입니다.")
 
-# st.sidebar.success("Streamlit")
+st.sidebar.success("Streamlit")
 
 # ####################################################
 # # 메시지 박스
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.success("성공 메시지")
+st.success("성공 메시지")
 
-# st.warning("경고 메시지")
+st.warning("경고 메시지")
 
-# st.error("오류 메시지")
+st.error("오류 메시지")
 
-# st.info("정보 메시지")
+st.info("정보 메시지")
 
 # ####################################################
 # # 끝
 # ####################################################
 
-# st.markdown("---")
+st.markdown("---")
 
-# st.write("오늘 수업 끝!")
+st.write("오늘 수업 끝!")
