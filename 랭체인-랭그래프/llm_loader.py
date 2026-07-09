@@ -37,7 +37,7 @@ import os
 # 모듈이 로드될 때 .env를 자동으로 읽도록 설정
 #load_dotenv()
 
-def init_custom_llm(temperature: float = 0.1, max_tokens: int = 100):
+def init_custom_llm(temperature: float = 0.1, max_tokens: int = 1000):
     """지정된 환경변수 모델로 LLM을 초기화합니다."""
     model_name = os.getenv("LLM_AI_MODEL")
     

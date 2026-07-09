@@ -10,10 +10,6 @@ import sys
 from pathlib import Path
 from pydantic import BaseModel
 
-# sys.path.append(str(Path(__file__).resolve().parent.parent.parent.parent))
-# from llm_loader import init_custom_llm
-
-# llm = init_custom_llm()
 
 from langchain_huggingface import HuggingFaceEmbeddings
 
@@ -37,7 +33,8 @@ DB_PATH = BASE_DIR / "chroma_db"
 
 db = Chroma.from_texts(
     texts=documents,
-    embedding=embedding
+    embedding=embedding,
+    persist_directory=str(DB_PATH)
 )
 
 print("Vector DB 저장 완료")
