@@ -70,7 +70,6 @@ res = agent.invoke({
 })
 
 print(res)
-print(
-    res["messages"][-1].content  # 마지막 응답 추출
+print(    res["messages"][-1].content  # 마지막 응답 추출
 )
 

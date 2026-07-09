@@ -148,8 +148,7 @@ response = llm_with_tools.invoke(
 
 
 if response.tool_calls:
-
-
+    
     print("\n[Tool 호출]")
     print(response.tool_calls)
 
@@ -161,8 +160,6 @@ if response.tool_calls:
 
 
     for tool_call in response.tool_calls:
-
-
         if tool_call["name"] == "web_search":
 
 
@@ -185,12 +182,7 @@ if response.tool_calls:
                     "query": query
                 }
             )
-
-
             print(result)
-
-
-
             messages.append(
                 ToolMessage(
                     content=result,
@@ -203,51 +195,27 @@ if response.tool_calls:
     ####################################################################
     # 7. 검색 결과 포함 최종 답변
     ####################################################################
-
-
     final = llm_with_tools.invoke(
         messages
     )
-
-
-    print(
-        "\n=============================="
-    )
-    print(
-        "최종 답변"
-    )
-    print(
-        "=============================="
-    )
-
-
-    print(
-        final.content
-    )
-
-
+    print("\n==============================")
+    print("최종 답변")
+    print("==============================")
+    print(final.content)
 
 ########################################################################
 # 8. Tool 필요 없는 질문
 ########################################################################
-
-
 else:
-
-
     print(
         "\n=============================="
     )
-
     print(
         "Tool 사용 안 함"
     )
-
     print(
         "=============================="
     )
-
-
     print(
         response.content
     )
