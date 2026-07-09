@@ -24,30 +24,20 @@ embedding = HuggingFaceEmbeddings(
 # 현재 파이썬 파일이 있는 폴더
 BASE_DIR = Path(__file__).resolve().parent #현재 실행 중인 파이썬 파일이 있는 폴더의 절대 경로를
 
-documents = []
-
-for pdf_file in BASE_DIR.glob("*.pdf"):
-    loader = PyPDFLoader(str(pdf_file))
-    documents.extend(loader.load())
-
-print(len(documents))
-print(f"PDF 페이지 수 : {len(documents)}")
-
-splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,
-    chunk_overlap=100 # 앞뒤로 100글자 겹치게  #chunk_size의 10~20% 정도
-)
-docs = splitter.split_documents(documents)
-print(f"Chunk 개수 : {len(docs)}")
-
+documents = [
+    "날짜 : 판매일",
+    "지역 : 판매지역",
+    "상품 : 상품명",
+    "수량 : 판매수량",
+    "매출 : 판매금액"
+]
 
 # Chroma DB 저장 폴더
 DB_PATH = BASE_DIR / "chroma_db"
 
-db = Chroma.from_documents(
-    documents=docs,
-    embedding=embedding,
-    persist_directory=str(DB_PATH)
+db = Chroma.from_texts(
+    texts=documents,
+    embedding=embedding
 )
 
 print("Vector DB 저장 완료")
