@@ -55,7 +55,6 @@ def plus(state: State):
 builder = StateGraph(State)
 
 builder.add_node("plus", plus)
-
 builder.add_edge(START, "plus")
 builder.add_edge("plus", END)
 

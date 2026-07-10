@@ -73,9 +73,7 @@ def print_student(state: State):
 builder = StateGraph(State)
 
 builder.add_node("student", print_student)
-
 builder.add_edge(START, "student")
-
 builder.add_edge("student", END)
 
 graph = builder.compile()
