@@ -9,15 +9,10 @@ from langgraph.graph import *
 
 
 class State(TypedDict):
-
     count:int
 
-
-
 def counter(state):
-
     count = state["count"]
-
     print(
         "현재 숫자:",
         count
