@@ -1,0 +1,349 @@
+from typing import TypedDict
+
+class State(TypedDict):
+    name:str
+    age:int
+
+state = State() # 이런식으로 쓰지 않음
+
+print(type(state)) #<class 'dict'>
+print(state)
+
+# 핵심 설명
+# TypedDict는
+# 객체(Object)를 만드는 클래스가 아니라
+# Dictionary의 구조를 설명하는 클래스
+
+# State는
+# Dictionary의 형식을 정의
+
+"""
+State(TypedDict) 종합 예제
+- Dictionary
+- TypedDict
+- State 생성
+- 조회
+- 수정
+- 추가
+- 삭제
+- 리스트
+- 중첩 Dictionary
+- 함수 전달
+- 복사(copy)
+"""
+
+from typing import TypedDict
+
+
+# =====================================================
+# 1. State 정의
+# =====================================================
+class State(TypedDict):
+    name: str
+    age: int
+    score: float
+    is_student: bool
+    hobbies: list[str]
+    address: dict
+
+
+print("=" * 60)
+print("1. State 생성")
+print("=" * 60)
+
+state: State = {
+    "name": "홍길동",
+    "age": 20,
+    "score": 95.5,
+    "is_student": True,
+    "hobbies": ["축구", "독서"],
+    "address": {
+        "city": "광주",
+        "country": "대한민국"
+    }
+}
+
+print(state)
+
+
+
+# =====================================================
+# 2. 데이터 조회
+# =====================================================
+
+print("\n" + "=" * 60)
+print("2. 데이터 조회")
+print("=" * 60)
+
+print("이름 :", state["name"])
+print("나이 :", state["age"])
+print("점수 :", state["score"])
+print("학생 :", state["is_student"])
+
+
+
+# =====================================================
+# 3. Dictionary 메소드
+# =====================================================
+
+print("\n" + "=" * 60)
+print("3. Dictionary 메소드")
+print("=" * 60)
+
+print(state.keys())
+
+print(state.values())
+
+print(state.items())
+
+print("name" in state)
+
+print("phone" in state)
+
+
+
+# =====================================================
+# 4. 값 수정
+# =====================================================
+
+print("\n" + "=" * 60)
+print("4. 값 수정")
+print("=" * 60)
+
+state["age"] = 25
+
+state["score"] = 100
+
+print(state)
+
+
+
+# =====================================================
+# 5. 리스트 다루기
+# =====================================================
+
+print("\n" + "=" * 60)
+print("5. 리스트")
+print("=" * 60)
+
+state["hobbies"].append("게임")
+
+state["hobbies"].append("영화")
+
+print(state["hobbies"])
+
+
+
+# =====================================================
+# 6. 중첩 Dictionary
+# =====================================================
+
+print("\n" + "=" * 60)
+print("6. 중첩 Dictionary")
+print("=" * 60)
+
+print(state["address"])
+
+print(state["address"]["city"])
+
+state["address"]["city"] = "서울"
+
+print(state["address"])
+
+
+
+# =====================================================
+# 7. get()
+# =====================================================
+
+print("\n" + "=" * 60)
+print("7. get()")
+print("=" * 60)
+
+print(state.get("name"))
+print(state.get("phone"))
+print(state.get("phone", "없음"))
+
+# =====================================================
+# 8. 함수에 전달
+# =====================================================
+
+print("\n" + "=" * 60)
+print("8. 함수")
+print("=" * 60)
+
+
+def print_state(state: State):
+
+    print("이름 :", state["name"])
+    print("나이 :", state["age"])
+    print("취미 :", state["hobbies"])
+
+
+print_state(state)
+
+
+
+# =====================================================
+# 9. 함수에서 수정
+# =====================================================
+
+print("\n" + "=" * 60)
+print("9. 함수에서 수정")
+print("=" * 60)
+
+
+def increase_age(state: State):
+    state["age"] += 1
+
+
+increase_age(state)
+print(state)
+
+
+
+# =====================================================
+# 10. copy()
+# =====================================================
+
+print("\n" + "=" * 60)
+print("10. copy()")
+print("=" * 60)
+
+new_state = state.copy()
+
+new_state["name"] = "이순신"
+
+print("원본 :", state["name"])
+
+print("복사 :", new_state["name"])
+
+
+
+# =====================================================
+# 11. 새로운 State 만들기
+# =====================================================
+
+print("\n" + "=" * 60)
+print("11. 새로운 State")
+print("=" * 60)
+
+new_state = {
+    **state,
+    "score": 50
+}
+
+print(new_state)
+
+
+
+# =====================================================
+# 12. update()
+# =====================================================
+
+print("\n" + "=" * 60)
+print("12. update()")
+print("=" * 60)
+
+state.update({
+    "age": 30,
+    "score": 88
+})
+
+print(state)
+
+
+
+# =====================================================
+# 13. pop()
+# =====================================================
+
+print("\n" + "=" * 60)
+print("13. pop()")
+print("=" * 60)
+
+temp = {
+    "a": 10,
+    "b": 20
+}
+
+print(temp)
+
+temp.pop("a")
+
+print(temp)
+
+
+
+# =====================================================
+# 14. 반복문
+# =====================================================
+
+print("\n" + "=" * 60)
+print("14. 반복문")
+print("=" * 60)
+
+for key, value in state.items():
+    print(key, ":", value)
+
+
+
+# =====================================================
+# 15. LangGraph 스타일 State 변경
+# =====================================================
+
+print("\n" + "=" * 60)
+print("15. LangGraph 스타일")
+print("=" * 60)
+
+
+def node(state: State):
+
+    print("Node 입력")
+
+    print(state)
+
+    return {
+        **state,
+        "age": state["age"] + 1,
+        "score": state["score"] + 5
+    }
+
+
+result = node(state)
+
+print()
+
+print("Node 출력")
+
+print(result)
+
+
+
+# =====================================================
+# 16. 원본과 반환값 비교
+# =====================================================
+
+print("\n" + "=" * 60)
+print("16. 원본 비교")
+print("=" * 60)
+
+print("원본")
+print(state)
+
+print()
+
+print("반환")
+print(result)
+
+
+
+# =====================================================
+# 17. 최종 출력
+# =====================================================
+
+print("\n" + "=" * 60)
+print("17. 최종 State")
+print("=" * 60)
+
+print(result)
