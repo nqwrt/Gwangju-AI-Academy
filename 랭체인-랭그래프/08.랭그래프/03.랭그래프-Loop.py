@@ -181,8 +181,9 @@ builder.add_conditional_edges(
 
 # 컴파일
 graph = builder.compile()
-
-
+print(
+    graph.get_graph().draw_mermaid()
+)
 # ==========================
 # 실행
 # ==========================

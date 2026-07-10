@@ -44,7 +44,6 @@ class State(TypedDict):
     question:str
     answer:str
 
-
 # ==========================
 # Node
 # ==========================
