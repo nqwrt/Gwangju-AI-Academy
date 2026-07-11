@@ -72,7 +72,12 @@ from langchain_core.messages import (
 # -------------------------
 agent = create_agent(
     model=llm,
-    tools=[age]
+    tools=[age],
+    system_prompt="""
+    당신은 친절한 AI 비서입니다.
+
+    필요하면 Tool을 사용하여 답변하세요.
+    """
 )
 
 # -------------------------
@@ -102,3 +107,20 @@ result = agent.invoke(
 # -------------------------
 print("="*50)
 print(result["messages"][-1].content)
+
+# ① Tool 만들기
+#        ↓
+# ② create_agent()
+#        ↓
+# "와! Tool을 자동으로 호출하네."
+#        ↓
+# ③ 그런데 내부는 어떻게 동작하지?
+#        ↓
+# ④ LangGraph 등장
+#        ↓
+# Agent Node
+# Tool Node
+# Conditional Edge
+# Loop
+#        ↓
+# ⑤ create_agent()와 비교
