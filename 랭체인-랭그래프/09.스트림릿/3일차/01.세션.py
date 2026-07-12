@@ -161,7 +161,6 @@ if menu == "카운터":
 
         -> 매번 초기화됨
 
-
         session_state:
 
         st.session_state.count
@@ -435,3 +434,36 @@ if st.button("작업 실행"):
     st.success(
         "완료!"
     )
+
+# |           | Session            | Cache                                 |
+# | --------- | ------------------ | ------------------------------------- |
+# | Streamlit | `st.session_state` | `st.cache_data` / `st.cache_resource` |
+# | 위치        | 서버 메모리(Session별)   | 서버 캐시 영역                              |
+# | 사용자 구분    | O                  | 보통 X                                  |
+# | 서버 재시작    | 삭제                 | 삭제                                    |
+# | 영구 저장     | ❌                  | ❌                                     |
+
+
+# 언제 무엇을 사용할까?
+# Session State 사용
+# 사용자와 관련된 것:
+# ✅ 로그인 여부
+# login=True
+# ✅ 선택한 메뉴
+# page="dashboard"
+# ✅ 채팅 기록
+# messages=[]
+# ✅ 입력 중인 값
+# name="홍길동"
+
+
+# Cache 사용
+# 비용이 큰 작업:
+# ✅ CSV 읽기
+# pd.read_csv()
+# ✅ 데이터 전처리
+# clean_data()
+# ✅ AI 모델 생성
+# load_model()
+# ✅ DB 연결
+# create_connection()
