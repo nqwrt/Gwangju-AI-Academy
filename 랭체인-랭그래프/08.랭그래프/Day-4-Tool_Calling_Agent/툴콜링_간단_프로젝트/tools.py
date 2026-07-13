@@ -90,22 +90,63 @@ def now() -> str:
 # =====================================================
 # 웹 검색 Tool
 # =====================================================
+from langchain_community.tools import DuckDuckGoSearchResults
+# search = DuckDuckGoSearchRun()
 
-search = DuckDuckGoSearchRun()
+search = DuckDuckGoSearchResults(
+    output_format="list",
+    max_results=5,
+    backend="text",
+    region="kr-kr",
+    safesearch="moderate",
+    timelimit="d" # 하루
+)
 
+    # """
+    # 인터넷에서 최신 정보를 검색하는 도구입니다.
 
+    # 사용 조건:
+    # - 오늘
+    # - 현재
+    # - 최신
+    # - 뉴스
+    # - 주가
+    # - 환율
+    # - 날씨
+    # - 최근 발표
+    # - 최근 출시
+    # - 실시간 정보
+
+    # 일반 지식 질문에는 사용하지 않습니다.
+    # """
+    # """
+    # 인터넷 검색
+
+    # 최신 정보 검색
+
+    # 뉴스 검색
+
+    # 주가 검색
+    # """
 @tool
 def web_search(query: str) -> str:
-    """
-    인터넷에서 최신 정보를 검색합니다.
+    # """
+    # 인터넷에서 최신 정보를 검색하는 도구입니다.
 
-    사용 예
+    # 사용 조건:
+    # - 오늘
+    # - 현재
+    # - 최신
+    # - 뉴스
+    # - 주가
+    # - 환율
+    # - 날씨
+    # - 최근 발표
+    # - 최근 출시
+    # - 실시간 정보
 
-    - 오늘 뉴스
-    - 삼성전자 주가
-    - AI Agent
-    - Python
-    """
+    # 일반 지식 질문에는 사용하지 않습니다.
+    # """
 
     try:
         result = search.invoke(query)
@@ -235,7 +276,7 @@ if __name__ == "__main__":
 
     print(web_search.invoke(
         {
-            "query": "랭그래프는 뭐지?"
+            "query": "오늘 삼성전자 주가는?"
         }
     ))
 
