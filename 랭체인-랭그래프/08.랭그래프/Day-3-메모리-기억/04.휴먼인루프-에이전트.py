@@ -7,8 +7,6 @@
 # 핵심함수 2개 이해
 # 이것이 interrupt()와 resume()이 존재하는 이유
 
-
-
 from typing import TypedDict
 
 from langgraph.graph import (
