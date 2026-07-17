@@ -174,10 +174,8 @@ def coder(state: AgentState):
         [
 
             HumanMessage(
-
                 content="""
 Research 결과를 참고하여
-
 Python 코드만 작성하세요.
 """
 
@@ -188,21 +186,14 @@ Python 코드만 작성하세요.
     )
 
     return {
-
         "messages":[
-
             AIMessage(
-
                 content=result.content,
-
                 name="Coder"
-
             )
 
         ],
-
         "code_done":True
-
     }
 
 # ----------------------------------
@@ -210,7 +201,6 @@ Python 코드만 작성하세요.
 # ----------------------------------
 
 def router(state):
-
     return state["next"]
 
 # ----------------------------------
@@ -218,45 +208,29 @@ def router(state):
 # ----------------------------------
 
 builder = StateGraph(AgentState)
-
 builder.add_node("Planner", planner)
-
 builder.add_node("Supervisor", supervisor)
-
 builder.add_node("Researcher", researcher)
-
 builder.add_node("Coder", coder)
 
 builder.add_edge(
-
     START,
-
     "Planner"
-
 )
 
 builder.add_edge(
-
     "Planner",
-
     "Supervisor"
 
 )
 
 builder.add_conditional_edges(
-
     "Supervisor",
-
     router,
-
     {
-
         "Researcher":"Researcher",
-
         "Coder":"Coder",
-
         "FINISH":END
-
     }
 
 )
