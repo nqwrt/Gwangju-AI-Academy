@@ -22,6 +22,13 @@ from llm_loader import init_custom_llm
 
 llm = init_custom_llm()
 
+
+import matplotlib.pyplot as plt
+
+plt.rcParams["font.family"] = "Malgun Gothic"
+plt.rcParams["axes.unicode_minus"] = False
+
+
 # ----------------------
 # CSV
 # ----------------------
