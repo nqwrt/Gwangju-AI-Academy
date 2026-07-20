@@ -149,7 +149,7 @@ ML
 
 예)
 "매출을 예측해줘"
-"고객을 군집화해줘"
+"지역을 군집화해줘"
 
 
 판단 규칙:
@@ -306,14 +306,44 @@ def statistics_node(state):
 
 def ml_node(state):
 
+    # prompt = f"""
+    # 질문
+
+    # {state["question"]}
+
+    # sklearn 코드 작성
+
+    # result 변수에 저장하세요.
+    # """
+
     prompt = f"""
-    질문
+    당신은 머신러닝 전문가입니다.
+
+    현재 DataFrame(df)가 이미 존재합니다.
+
+    컬럼
+
+    {list(df.columns)}
+
+    사용자 질문
 
     {state["question"]}
 
-    sklearn 코드 작성
+    규칙
 
-    result 변수에 저장하세요.
+    - 반드시 기존 df만 사용하세요.
+    - 절대로 새로운 데이터를 생성하지 마세요.
+    - np.random 사용 금지
+    - pd.DataFrame 생성 금지
+    - CSV 읽기 금지
+    - 예제 데이터 생성 금지
+    - 가능한 기존 컬럼을 이용하세요.
+    - 머신러닝 입력(X)은 df의 컬럼으로 만드세요.
+    - 숫자가 아닌 컬럼은 LabelEncoder 또는 OneHotEncoder를 사용하세요.
+    - 결과는 result 변수에 저장하세요.
+    - 실행 가능한 Python 코드만 출력하세요.
+    - 설명은 출력하지 마세요.
+    - ```python 코드블록도 출력하지 마세요.
     """
 
     state["code"] = llm.invoke(prompt).content
