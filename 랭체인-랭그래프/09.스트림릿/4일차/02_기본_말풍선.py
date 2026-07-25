@@ -23,6 +23,7 @@ question = st.chat_input("질문")
 if question:
 
     with st.chat_message("user"): # 사용자 말풍선을 만듦
+        st.write(question)      # ← 사용자가 입력한 내용을 출력
     
     # st.write(question)
     # 그림으로 표현하면

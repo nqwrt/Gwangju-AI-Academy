@@ -18,7 +18,8 @@ llm = init_custom_llm()
 
 st.title("🤖 OpenAI 챗봇")
 
-question = st.chat_input("질문하세요")
+#항상 화면의 맨 아래에 고정
+question = st.chat_input("질문하세요") 
 
 if question:
 
