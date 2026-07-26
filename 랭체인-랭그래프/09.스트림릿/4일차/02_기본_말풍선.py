@@ -16,27 +16,24 @@ from llm_loader import init_custom_llm
 
 llm = init_custom_llm()
 
+
 st.title("💬 Chat")
 
-question = st.chat_input("질문")
+# 출력 위치를 먼저 확보
+
+chat_area = st.container()
+# 입력창을 위에 배치
+question = st.text_input("질문")
 
 if question:
-
-    with st.chat_message("user"): # 사용자 말풍선을 만듦
-        st.write(question)      # ← 사용자가 입력한 내용을 출력
-    
-    # st.write(question)
-    # 그림으로 표현하면
-
-    # ┌────────────────────┐
-    # 🙂 Python이란?
-    # └────────────────────┘
+    with chat_area:
+        with st.chat_message("user"):
+            st.write(question)
 
         response = llm.invoke(question)
 
-    with st.chat_message("assistant"): # AI 말풍선을 만듬.
-
-        st.write(response.content)
+        with st.chat_message("assistant"):
+            st.write(response.content)
 
 # 핵심정리
 # st.chat_input()	채팅 입력창 생성
